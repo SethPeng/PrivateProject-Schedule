@@ -59,8 +59,9 @@ class NormalSubscriber<T>(private var context:Context, private var onNextListene
             is HttpException -> ToastUtil.showText("无法连接到服务器")
             is UnknownHostException -> ToastUtil.showText("网络异常（UnknownHostException）")
             else -> {
-                LogUtil.e( "error:" + e.cause)
-                LogUtil.e( "error:" + e.message)
+                LogUtil.e( "errorCause:${e.cause}")
+                LogUtil.e( "errorMsg:${e.message}")
+                e.printStackTrace()
                 //其他异常处理交由onError()处理
                 onErrorListener.onError(e)
             }
