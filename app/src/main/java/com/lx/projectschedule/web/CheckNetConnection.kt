@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.lx.projectschedule.MainApplication
+import com.lx.projectschedule.util.log.LogUtil
 
 /**
  * ----------Dragon be here!----------/
@@ -47,6 +48,7 @@ class CheckNetConnection {
             if(info!=null){
                 (0..info.size).filter { info[it].state==NetworkInfo.State.CONNECTED }.forEach { return true }
             }
+            LogUtil.e("=======无网络======")
             return false
         }
     }

@@ -61,4 +61,6 @@ class MainViewModel:BaseViewModel(), MainActivity.Contract {
         LogUtil.i(bean.toString())
     }
 
+
+
 }

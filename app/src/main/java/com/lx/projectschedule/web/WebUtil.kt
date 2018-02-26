@@ -41,17 +41,18 @@ class WebUtil {
          * 请求数据
          */
         fun <T> request(event:String,context: Context,viewModel: BaseViewModel, observable: Observable<BaseBean<T>>) {
-            var observable=observable.map(HttpResultFunc<T>())
-            RetrofitHelp.toSubscribe(observable,NormalSubscriber(context,object:SubscriberOnNextListener<T>{
-                override fun onNext(t: T) {
-                    DataCenter.getInstance().changeData(viewModel,event,t)
-                }
-            },object :SubscriberOnErrorListener{
-                override fun onError(e: Throwable) {
-                    DataCenter.getInstance().changeData(viewModel,event,null)
-                }
-            }))
+            if(CheckNetConnection.isNetAvailable()) {//判断是否联网
+                var observable = observable.map(HttpResultFunc<T>())
+                RetrofitHelp.toSubscribe(observable, NormalSubscriber(context, object : SubscriberOnNextListener<T> {
+                    override fun onNext(t: T) {
+                        DataCenter.getInstance().changeData(viewModel, event, t)
+                    }
+                }, object : SubscriberOnErrorListener {
+                    override fun onError(e: Throwable) {
+                        DataCenter.getInstance().changeData(viewModel, event, null)
+                    }
+                }))
+            }
         }
     }
-
 }

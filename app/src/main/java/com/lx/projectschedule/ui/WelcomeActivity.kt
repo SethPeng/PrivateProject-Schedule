@@ -45,8 +45,8 @@ class WelcomeActivity:BaseActivity() {
     }
 
     override fun init(savedInstanceState: Bundle?){
-        var intent= Intent(this,MainActivity::class.java)
-        startActivity(intent)
+//        var intent= Intent(this,MainActivity::class.java)
+//        startActivity(intent)
     }
 
 }
