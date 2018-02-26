@@ -1,10 +1,10 @@
-package com.lx.projectschedule
+package com.lx.projectschedule.web
 
-import android.app.Application
-import android.content.Context
-import com.lx.projectschedule.util.log.LogUtil
-import com.yyxk.x_toast.XToast
-import com.yyxk.xlog.XLog
+import com.google.gson.Gson
+import com.google.gson.TypeAdapter
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import retrofit2.Converter
 
 /**
  * ----------Dragon be here!----------/
@@ -27,32 +27,28 @@ import com.yyxk.xlog.XLog
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━神兽出没━━━━━━
  * 项目名称：ProjectSchedule
- * 包名:com.lx.projectschedule
+ * 包名:com.lx.projectschedule.web
  * 类描述：
  * 创建人：LX
- * 创建时间：2018/2/24 下午2:06
+ * 创建时间：2018/2/26 上午9:32
  * 修改人：LX
- * 修改时间：2018/2/24 下午2:06
+ * 修改时间：2018/2/26 上午9:32
  * 修改备注：
  */
+class JsonRequestBodyConverter<T>(private var gson: Gson, private var adapter: TypeAdapter<T>) :Converter<T,RequestBody> {
 
-
-class MainApplication:Application(){
 
     companion object {
-        val DEFAULT_TAG="taggg"
-        lateinit var mContext:Context
+        private val MEDIA_TYPE=MediaType.parse("application/json; charset=UTF-8")
+
     }
 
-    override fun onCreate() {
-        super.onCreate()
-        mContext=this
-        //初始化XToast
-        XToast.init(this)
-        //初始化XLog，监听日志记录
-        XLog.init(true, DEFAULT_TAG,LogUtil(),1)
-    }
 
+    override fun convert(value: T): RequestBody {
+
+        var postBody=gson.toJson(value.toString())
+        return RequestBody.create(MEDIA_TYPE,postBody)
+    }
 
 
 }

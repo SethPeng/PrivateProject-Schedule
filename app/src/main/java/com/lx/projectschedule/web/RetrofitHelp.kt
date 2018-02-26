@@ -1,7 +1,6 @@
 package com.lx.projectschedule.web
 
 import okhttp3.OkHttpClient
-import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import rx.Observable
@@ -43,7 +42,7 @@ class RetrofitHelp {
     private constructor()
 
     companion object {
-        private val BASE_URL: String = "http://nb-adios-newinterface.huerkang.com/"
+        private val BASE_URL: String = "http://nbnewinterface.huerkang.com/"
         private lateinit var mRetrofit: Retrofit
         //单例
         var mInstance: RetrofitHelp? = null
@@ -58,7 +57,7 @@ class RetrofitHelp {
                     mRetrofit = Retrofit.Builder()
                             .baseUrl(BASE_URL)
                             .client(getOkHttpClient())
-                            .addConverterFactory()
+                            .addConverterFactory(JsonConverterFactory.create())
                             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                             .build()
                     field = mRetrofit.create(ResponseCallBack::class.java)

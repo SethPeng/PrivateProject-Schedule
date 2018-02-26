@@ -2,6 +2,7 @@ package com.lx.projectschedule.web
 
 import com.lx.projectschedule.bean.BaseBean
 import com.lx.projectschedule.bean.TestBean
+import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -39,7 +40,7 @@ import rx.Observable
 interface ResponseCallBack {
 
     @FormUrlEncoded
-    @POST("{path}?")
-    fun test(@Path("path") path: String): Observable<BaseBean<TestBean>>
+    @POST("{path}")
+    fun test(@Path("path") path: String,@Field("id")id:String): Observable<BaseBean<TestBean>>
 
 }

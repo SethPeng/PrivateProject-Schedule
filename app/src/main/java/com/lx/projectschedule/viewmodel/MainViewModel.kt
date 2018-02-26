@@ -49,7 +49,7 @@ class MainViewModel:BaseViewModel(), MainActivity.Contract {
     }
 
     override fun onTextClickListener() {
-        var callback=RetrofitHelp.mResponseCallBack!!.test("login.json")
+        var callback=RetrofitHelp.mResponseCallBack!!.test("login.json","2")
         WebUtil.request(FIRST_TEST,getBandedView(MainActivity::class.java).activityContext,this,callback)
     }
 

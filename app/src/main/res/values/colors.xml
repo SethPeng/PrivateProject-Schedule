@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="default_toast_bg">#55000000</color>
-    <color name="default_toast_text">#55ffffff</color>
+    <color name="default_toast_text">#ffffff</color>
 </resources>
