@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import com.yyxk.architectureframework.center.manager.ActivityStackManager;
 import com.yyxk.architectureframework.ibase.IBaseView;
@@ -43,7 +41,6 @@ import com.yyxk.architectureframework.ibase.IBaseView;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
     private String mPageName;
-    private View mLayoutView;
     private MVVMConect mMVVMConect;
 
     //初始化
@@ -52,11 +49,14 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        beforeInit();
         initMvvmConect();
         ActivityStackManager.getInstance().push(this);
-        mLayoutView = LayoutInflater.from(this).inflate(setLayoutId(),null);
-        setContentView(mLayoutView);
         init(savedInstanceState);
+    }
+
+    public void beforeInit() {
+        setContentView(setLayoutId());
     }
 
     private void initMvvmConect(){
@@ -66,10 +66,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     public String getPageName() {
         return setPageName();
-    }
-
-    public View getLayoutView(){
-        return mLayoutView;
     }
 
     @Override
