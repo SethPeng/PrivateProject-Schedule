@@ -46,7 +46,7 @@ class CheckNetConnection {
             if (mManager == null) mManager = MainApplication.mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             var info=mManager!!.allNetworkInfo
             if(info!=null){
-                (0..info.size).filter { info[it].state==NetworkInfo.State.CONNECTED }.forEach { return true }
+                (0 until info.size).filter { info[it].state==NetworkInfo.State.CONNECTED }.forEach { return true }
             }
             LogUtil.e("=======无网络======")
             return false

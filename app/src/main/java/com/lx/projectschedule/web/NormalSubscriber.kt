@@ -3,6 +3,8 @@ package com.lx.projectschedule.web
 import android.content.Context
 import com.lx.projectschedule.util.log.LogUtil
 import com.lx.projectschedule.util.toast.ToastUtil
+import com.lx.projectschedule.web.dialog.DialogHandler
+import com.lx.projectschedule.web.dialog.IDialog
 import retrofit2.adapter.rxjava.HttpException
 import rx.Subscriber
 import java.net.ConnectException
@@ -41,6 +43,8 @@ import java.util.concurrent.TimeoutException
  */
 class NormalSubscriber<T>(private var context:Context, private var onNextListener: SubscriberOnNextListener<T>, private val onErrorListener: SubscriberOnErrorListener):Subscriber<T>() {
 
+    lateinit var mDialog:IDialog
+
     override fun onStart() {
         super.onStart()
         showDialog()
@@ -77,14 +81,14 @@ class NormalSubscriber<T>(private var context:Context, private var onNextListene
      * 显示Dialog
      */
     private fun showDialog() {
-
+        DialogHandler.requestShowDialog(context)
     }
 
     /**
      * 隐藏Dialog
      */
     private fun dismissDialog() {
-
+        DialogHandler.requestHideDialog()
     }
 
 }

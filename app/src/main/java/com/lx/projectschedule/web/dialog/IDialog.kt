@@ -1,9 +1,6 @@
-package com.lx.projectschedule.ui
+package com.lx.projectschedule.web.dialog
 
-import android.content.Intent
-import android.os.Bundle
-import com.lx.projectschedule.R
-import com.yyxk.architectureframework.base.BaseActivity
+import android.content.Context
 
 /**
  * ----------Dragon be here!----------/
@@ -26,27 +23,15 @@ import com.yyxk.architectureframework.base.BaseActivity
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━神兽出没━━━━━━
  * 项目名称：ProjectSchedule
- * 包名:com.lx.projectschedule.ui
+ * 包名:com.lx.projectschedule.web.dialog
  * 类描述：
  * 创建人：LX
- * 创建时间：2018/2/26 下午3:30
+ * 创建时间：2018/2/27 下午2:53
  * 修改人：LX
- * 修改时间：2018/2/26 下午3:30
+ * 修改时间：2018/2/27 下午2:53
  * 修改备注：
  */
-class WelcomeActivity:BaseActivity() {
-
-    override fun setLayoutId(): Int {
-        return R.layout.activity_welcome
-    }
-
-    override fun setPageName(): String {
-        return "欢迎"
-    }
-
-    override fun init(savedInstanceState: Bundle?){
-        var intent= Intent(this,MainActivity::class.java)
-        startActivity(intent)
-    }
-
+interface IDialog {
+    fun hideDialog()
+    fun showDialog(context: Context)
 }
