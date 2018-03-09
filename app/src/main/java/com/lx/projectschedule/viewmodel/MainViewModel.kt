@@ -52,7 +52,7 @@ class MainViewModel:BaseViewModel(), MainActivity.Contract {
     override fun onTextClickListener() {
         var callback=RetrofitHelp.mResponseCallBack!!.test("login.json","2")
         WebUtil.request(FIRST_TEST,getBandedView(MainActivity::class.java).activityContext,this,callback)
-        ToastUtil.showText("alala")
+        ToastUtil.showText("Login Btn Clicked")
     }
 
 
@@ -60,7 +60,5 @@ class MainViewModel:BaseViewModel(), MainActivity.Contract {
     fun onNetWorkSuccess(bean:TestBean){
         LogUtil.i(bean.toString())
     }
-
-
-
+    
 }

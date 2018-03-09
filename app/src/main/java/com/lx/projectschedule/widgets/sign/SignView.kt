@@ -6,7 +6,7 @@ import android.support.annotation.ColorInt
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.lx.projectschedule.views.sign.PathSegment
+import com.lx.projectschedule.widgets.sign.PathSegment
 
 
 /**

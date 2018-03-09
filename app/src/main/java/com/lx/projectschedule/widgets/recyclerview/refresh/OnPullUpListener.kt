@@ -1,6 +1,4 @@
-package com.lx.projectschedule.views.sign;
-
-import android.graphics.Path;
+package com.lx.xrecyclerview.refresh
 
 /**
  * ----------Dragon be here!----------/
@@ -22,45 +20,16 @@ import android.graphics.Path;
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━神兽出没━━━━━━
- * 项目名称：TheSignDrawer
- * 包名:com.yyxk.signdrawer
+ * 项目名称：XRecyclerTest
+ * 包名:com.lx.xrecyclerview.refresh
  * 类描述：
  * 创建人：LX
- * 创建时间：2018/2/26 下午1:37
+ * 创建时间：2018/3/6 下午3:24
  * 修改人：LX
- * 修改时间：2018/2/26 下午1:37
+ * 修改时间：2018/3/6 下午3:24
  * 修改备注：
  */
-
-public class PathSegment {
-    private Path path;
-    private float width;
-    private int alpha;
-
-    public Path getPath() {
-        return path;
-    }
-
-    public PathSegment setPath(Path path) {
-        this.path = path;
-        return this;
-    }
-
-    public float getWidth() {
-        return width;
-    }
-
-    public PathSegment setWidth(float width) {
-        this.width = width;
-        return this;
-    }
-
-    public int getAlpha() {
-        return alpha;
-    }
-
-    public PathSegment setAlpha(int alpha) {
-        this.alpha = alpha;
-        return this;
-    }
+interface OnPullUpListener {
+    fun onRefreshPullUp(distance: Float)
+    fun onLoadMorePullUp(distance: Float)
 }
