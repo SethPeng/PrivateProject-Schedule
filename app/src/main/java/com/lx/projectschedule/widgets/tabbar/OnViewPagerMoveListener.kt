@@ -1,4 +1,6 @@
-package com.lx.projectschedule.widgets.label
+package com.lx.labelviewtest.tabbar
+
+import android.widget.ImageView
 
 /**
  * ----------Dragon be here!----------/
@@ -20,16 +22,15 @@ package com.lx.projectschedule.widgets.label
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━神兽出没━━━━━━
- * 项目名称：ProjectSchedule
- * 包名:com.lx.projectschedule.widgets.label
+ * 项目名称：LabelViewTest
+ * 包名:com.lx.labelviewtest.tabbar
  * 类描述：
  * 创建人：LX
- * 创建时间：2018/3/9 上午10:37
+ * 创建时间：2018/3/9 上午11:35
  * 修改人：LX
- * 修改时间：2018/3/9 上午10:37
+ * 修改时间：2018/3/9 上午11:35
  * 修改备注：
  */
-class LabelView {
-
-
+interface OnViewPagerMoveListener {
+    fun OnPageScroll(imageView: ImageView, position: Int, positionOffset: Float, positionOffsetPixels: Int )
 }
